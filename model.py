@@ -71,8 +71,8 @@ class Model(object):
 
             # Discriminator/classifier loss
             s_loss = tf.reduce_mean(huber_loss(label, d_real[:, :-1]))
-            d_loss_real = tf.nn.softmax_cross_entropy_with_logits(logits=d_real_logits, labels=real_label)
-            d_loss_fake = tf.nn.softmax_cross_entropy_with_logits(logits=d_fake_logits, labels=fake_label)
+            d_loss_real = tf.nn.softmax_cross_entropy_with_logits_v2(logits=d_real_logits, labels=real_label)
+            d_loss_fake = tf.nn.softmax_cross_entropy_with_logits_v2(logits=d_fake_logits, labels=fake_label)
             d_loss = tf.reduce_mean(d_loss_real + d_loss_fake)
 
             # Generator loss

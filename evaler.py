@@ -69,7 +69,7 @@ class Evaler(object):
         # --- create model ---
         self.model = Model(config)
 
-        self.global_step = tf.contrib.framework.get_or_create_global_step(graph=None)
+        self.global_step = tf.train.get_or_create_global_step(graph=None)
         self.step_op = tf.no_op(name='step_no_op')
 
         tf.set_random_seed(1234)
